@@ -15,7 +15,7 @@ function startLevel() {
         food.setPosition(randint(20, 140), randint(20, 100))
     }
     player.say("Level " + level, 1000)
-    info.startCountdown(10)
+    info.startCountdown(13)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     count += 1
@@ -23,7 +23,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     otherSprite.destroy()
     otherSprite.startEffect(effects.smiles, 200)
     if (count > 10 + level) {
-        level += 1
+        level += 1000
         music.jumpUp.play()
         startLevel()
     } else {
@@ -33,6 +33,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 game.splash("Hurry!", "Eat the cherries!")
 level = 1
 player = sprites.create(sprites.castle.princessFront0, SpriteKind.Player)
-controller.moveSprite(player, 70, 70)
+controller.moveSprite(player, 80, 80)
 startLevel()
 ```
